@@ -1,0 +1,27 @@
+<div style="position:fixed;top:110px;left:350px">
+        <input type="text"  [(ngModel)]="namePattern" (ngModelChange)="filterProducts($event)" placeholder="Search">
+</div>
+<div *ngIf="products.length>0;then showProducts else showNoProducts"></div>
+<ng-template #showProducts>
+    <div class="row">
+        <div *ngFor="let product of products">
+            <div class="col-xs-4" style="float : right; margin : 20px">
+                <div class="thumbnail product" style="border: 1px solid ;padding : 35px">
+                    <span class="badge">{{product.id}}</span> <strong>{{product.name}}</strong><br><br>
+                    <img width="250" height="250" src={{product.src}} /><br><br>
+                    <h1 class="badge">Rs.{{product.price}}</h1>
+                    
+                    <button (click)="clickedProduct(product)" class="btn btn-sm btn-success">Description</button>
+                    <button *ngIf="login=='true'" (click)="addToCart(product)" class="btn btn-sm btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #showNoProducts>
+    <div >
+        <br>
+        <strong><label style="font-size:25px">No such Mobile available. Please write to us for special requirement.</label></strong>
+      </div>
+</ng-template>
+

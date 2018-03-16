@@ -1,0 +1,39 @@
+<div style="position:fixed;width:100%">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/">World Of Mobiles- The Next Generation</a>
+      <a class="tablink1" routerLink="/"><img width="50" height="50" src="..\..\..\assets\img\home.png" /><font size="2" style="color:white">Home</font></a>
+      
+      <div style="float:right" *ngIf="login=='true';then showUser else showLogin"></div>
+      <ng-template #showUser>
+        <div style="float:right;margin-top:10px">
+         
+          <span class="username badge">{{ currentUser.firstName }} {{currentUser.lastName}}</span> 
+            <button class = "btn btn-sm btn-success" (click)="logout()">SignOut</button>
+          </div>
+        </ng-template>
+      <ng-template #showLogin>
+          <div style="float:right">
+          <a class = "btn btn-sm btn-success" style="margin:25px" routerLink="/login">SignIn</a>
+          </div>
+      </ng-template>     
+      <br>
+    </div>
+
+  </div>
+</nav>
+
+<div  *ngIf="login=='true'" class="thumbnail price" style="float:right;margin:20px">
+    <div style="float:left">
+        <a class="cart-message" *ngIf="login=='true'" routerLink="/cart"><img width="50" height="50" src="..\..\..\assets\img\cart.jpg" /></a><br>
+    </div>
+    <div style="float:left">
+        
+    <strong class="cart-message">Total Items: {{ cart.totalQuantity }} </strong><br>
+    <strong class="cart-message">Total Price: INR {{ cart.totalPrice }}</strong><br>
+    <a class="cart-message" *ngIf="login=='true'" routerLink="/cart">Shopping Cart</a>
+    </div>
+  </div>
+
+</div>

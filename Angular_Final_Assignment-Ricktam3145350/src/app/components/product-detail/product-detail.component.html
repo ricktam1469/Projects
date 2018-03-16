@@ -1,0 +1,21 @@
+<div *ngIf="selectedProduct">
+    
+        <div class="col-md-4 thumbnail margin-left-50" style="float:left">
+                <img width="250" height="250" src={{selectedProduct.src}} />
+        </div>
+
+        <div class="col-md-6 well" style="float:left">
+            <span class="badge">{{selectedProduct.id}}</span> <strong>{{selectedProduct.name}}</strong><br>
+            <br>
+            <p>{{selectedProduct.info}}</p>
+            <div  *ngIf="login=='true'" style="display: flex">
+                <span class="padding-right-5">How Many Mobiles: </span>
+                <input type="number" [(ngModel)]="quantity" size="4" placeholder="Number of Mobiles">
+            </div>
+            <br>
+            <h1 class="badge">Rs.{{selectedProduct.price}}</h1>
+            <button *ngIf="login=='true'" (click)="addToCart(selectedProduct)" class="btn btn-md btn-primary">Add to Cart</button>
+            <hr />
+            <button (click)="goBack()" class="btn btn-danger">Back</button>
+        </div>
+</div>
