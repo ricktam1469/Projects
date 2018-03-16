@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "ng serve --proxy-config proxy.conf.json"
+    "server": "ng serve --proxy-config proxy.conf.json",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
@@ -54,5 +55,9 @@
     "ts-node": "^3.3.0",
     "tslint": "^5.5.0",
     "typescript": "^2.4.2"
+  },
+   "engines": {
+    "node": "6.11.0",
+    "npm": "3.10.10"
   }
 }
