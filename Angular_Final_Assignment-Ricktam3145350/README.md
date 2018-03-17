@@ -1,5 +1,5 @@
 # Product Name
-Mobile Online Store Cart 
+Mobile Store Cart 
 
 ***Installation***
 
